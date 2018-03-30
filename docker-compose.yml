@@ -1,0 +1,17 @@
+version: '3'
+services:
+  ssdb:
+      image: convee/ssdb:1.0
+      restart: always
+      tty: true
+      volumes:
+        - ./ssdb.conf:/usr/local/ssdb/ssdb.conf
+        - ./data:/data
+      ports:
+        - 8888:8888
+      networks:
+        - web
+
+networks: 
+  web:
+    driver: bridge
