@@ -1,7 +1,7 @@
 version: '3'
 services:
   ssdb:
-      image: convee/ssdb:1.0
+      image: registry.cn-hangzhou.aliyuncs.com/otome/ssdb
       restart: always
       tty: true
       volumes:

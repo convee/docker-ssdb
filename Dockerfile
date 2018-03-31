@@ -2,11 +2,9 @@ FROM alpine:latest
 
 MAINTAINER Convee <convee.cn@gmail.com>
 
-RUN apk update
-
-RUN apk add gcc
-
-RUN apk add --virtual .build-deps autoconf make g++ git
+RUN apk update && \
+    apk add gcc python && \
+    apk add --virtual .build-deps autoconf make g++ git
 
 RUN mkdir -p /usr/src/ssdb
 
@@ -26,3 +24,5 @@ RUN mkdir /data
 VOLUME /data
 
 WORKDIR /data
+
+CMD ["/usr/local/ssdb/ssdb-server", "/usr/local/ssdb/ssdb.conf"]
